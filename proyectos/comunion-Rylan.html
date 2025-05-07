@@ -56,58 +56,8 @@
     <section class="photos">
         <h2>Comunión</h2>
         <p>Barcelona, Iglesia Escola Mare de Déu del Roser</p>
-        <div class="photo-grid">
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-001.jpg" alt="Chryzel Photoshoot 1">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-004 - copia.jpg" alt="Chryzel Photoshoot 2">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-014 - copia.jpg" alt="Chryzel Photoshoot 3">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-016.jpg" alt="Chryzel Photoshoot 4">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-019 - copia.jpg" alt="Chryzel Photoshoot 5">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-021.jpg" alt="Chryzel Photoshoot 6">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-029.jpg" alt="Chryzel Photoshoot 7">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-062.jpg" alt="Chryzel Photoshoot 8">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-068.jpg" alt="Chryzel Photoshoot 9">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-070.jpg" alt="Chryzel Photoshoot 10">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-072.jpg" alt="Chryzel Photoshoot 10">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-080.jpg" alt="Chryzel Photoshoot 10">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-082.jpg" alt="Chryzel Photoshoot 10">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-089.jpg" alt="Chryzel Photoshoot 10">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-092.jpg" alt="Chryzel Photoshoot 10">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-093.jpg" alt="Chryzel Photoshoot 10">
-            </div>
-            <div class="photo-item">
-                <img src="comunión-Rylan/Comunion Rylan 2024-104.jpg" alt="Chryzel Photoshoot 10">
-            </div>
+        <div class="photo-grid" id="photoGrid">
+
         </div>
     </section>
     <section class="footer">
@@ -124,6 +74,25 @@
             <script>document.write(new Date().getFullYear())</script> | Discovery Shot
         </p>
     </section>
+    <script>
+        const images = Array.from({ length: 41 }, (_, i) => {
+            const num = String(i + 1).padStart(2, '0');
+            return {
+                src: `images/comunión-Rylan/comunion-${num}.jpg`, alt: `Bautizo Zianna ${num}`
+            };
+        });
+        const photoGrid = document.getElementById('photoGrid');
+
+        images.forEach(img => {
+            photoGrid.innerHTML +=
+                `<div class="photo-item">
+            <img src="${img.src}"
+            alt="${img.alt}">
+        </div>
+        `;
+        });
+
+    </script>
     <script src="menu.js"></script>
 </body>
 
