@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Discovery Shot">
+    <meta name="description"
+        content="¡Hola! Soy Charles Kevin, fotógrafo profesional basado en Barcelona. Si me quieres contratar, no dudes en contactar conmigo.">
+    <title>Discovery Shot</title>
+    <link rel="icon" href="images/Logo1.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="proyectos.css">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M1T3SRSCWQ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-M1T3SRSCWQ');
+</script>
+
+<body>
+    <div class="Nav">
+        <nav class="nav">
+            <div class="logo">
+                <img src="logo.png" alt="Discovery Shot Logo">
+            </div>
+            <div class="nav-links">
+                <a href="https://www.discoveryshot.one">Inicio</a>
+                <a href="https://www.discoveryshot.one/sobre_mi">Sobre mí</a>
+                <a href="https://www.discoveryshot.one/proyectos">Proyectos</a>
+                <a href="https://www.discoveryshot.one/contacto">Contacto</a>
+            </div>
+            <div class="menu-btn">
+                <div class="menu-burger"></div>
+            </div>
+        </nav>
+    </div>
+    <div class="sidebar">
+        <div class="sidebar-links">
+            <a href="https://www.discoveryshot.one">Inicio</a>
+            <a href="https://www.discoveryshot.one/sobre_mi">Sobre mí</a>
+            <a href="https://www.discoveryshot.one/proyectos">Proyectos</a>
+            <a href="https://www.discoveryshot.one/contacto">Contacto</a>
+        </div>
+    </div>
+    <section class="photos">
+        <h2>Eventos</h2>
+        <div class="photo-grid" id="photoGrid">
+
+        </div>
+    </section>
+    <section class="footer">
+        <div class="icons">
+            <a href="https://www.instagram.com/discovery._.shot/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@discovery_shot?_t=ZN-8vknldvHTXy&_r=1" target="_blank"><i
+                    class="fa-brands fa-tiktok"></i></a>
+            <a href="https://www.youtube.com/@discoveryshot23" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61553303516625" target="_blank"><i
+                    class="fa-brands fa-facebook-f"></i></a>
+        </div>
+        <p class="footer-text">Copyright &copy;
+            <script>document.write(new Date().getFullYear())</script> | Discovery Shot
+        </p>
+    </section>
+    <script>
+        const images = Array.from({ length: 19 }, (_, i) => {
+            const num = String(i + 1).padStart(2, '0');
+            return {
+                src: `eventos-FM/IMG_${num}.jpg`, alt: `Eventos FM ${num}`
+            };
+        });
+        const photoGrid = document.getElementById('photoGrid');
+
+        images.forEach(img => {
+            photoGrid.innerHTML +=
+                `<div class="photo-item">
+            <img src="${img.src}"
+            alt="${img.alt}">
+        </div>
+        `;
+        });
+
+    </script>
+    <script src="menu.js"></script>
+</body>
+
+</html>
