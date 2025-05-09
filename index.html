@@ -12,6 +12,7 @@
     <title>Discovery Shot</title>
     <link rel="icon" href="images/Logo1.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -97,9 +98,14 @@
     </section>
     <section class="videos">
         <div class="video-container">
-            <video id="player" autoplay>
+            <video id="player" autoplay muted>
                 <source src="videos/fotofilm-video.mp4" type="video/mp4">
             </video>
+            <div class="custom-controls">
+                <button id="playPauseBtn" class="control-btn">
+                    <i class="fas fa-pause"></i>
+                </button>
+            </div>
             <div class="video-overlay">
                 <a href="https://www.youtube.com/@discoveryshot23" target="_blank" class="youtube-btn">
                     Ver más en YouTube
