@@ -37,3 +37,26 @@ document.addEventListener('DOMContentLoaded', function () {
         playPauseIcon.classList.add('fa-play');
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    const slides = document.querySelectorAll('.slide');
+    const prevButton = document.querySelector('.prev-arrow');
+    const nextButton = document.querySelector('.next-arrow');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    function updateSlider() {
+        sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+
+    prevButton.addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+    });
+
+    nextButton.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    });
+});
