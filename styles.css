@@ -34,6 +34,9 @@ body {
     margin-bottom: 3rem;
     color: rgba(255, 255, 255, 0.7);
     text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 8px;
+    background-color: linear-gradi
 }
 
 .nav {
