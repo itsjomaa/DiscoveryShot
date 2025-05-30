@@ -213,15 +213,30 @@ h2 {
     transition: transform 0.3s ease;
 }
 
+.photo-item1 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
 .photo-item:nth-child(1) {
     grid-column-start: span 2;
     display: flex;
     justify-content: center;
-    alighn-items: center;
+    align-items: center;
     overflow: hidden;
 }
 
-.photo-item:nth-child(1) img {
+.photo-item1:nth-child(1) {
+    grid-column-start: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.photo-item1:nth-child(1) img {
     object-position: center 65%;
 }
 
