@@ -240,12 +240,24 @@ h2 {
     object-position: center 65%;
 }
 
+.photo-item:nth-child(4) {
+    grid-column-start: span 2;
+}
+
+.photo-item:nth-child(9) {
+    grid-column-start: span 2;
+}
+
 .photo-item:nth-child(25) {
     grid-column-start: span 2;
 }
 
-.photo-item:nth-child(50) {
+.photo-item:nth-child(49) {
     grid-column-start: span 2;
+}
+
+.photo-item:nth-child(50) {
+    grid-column-start: span 3;
 }
 
 .photo-item:hover img {
