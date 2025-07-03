@@ -582,6 +582,14 @@ h2 {
 }
 
 
+.footer {
+    width: 100%;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .footer-left {
     margin-left: 4%;
 }
@@ -606,16 +614,15 @@ h2 {
     text-align: left;
 }
 
-.footer {
-    width: 100%;
-    padding: 30px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.footer-right {
+    text-align: center;
+    margin-right: 10%;
 }
 
-.icons {
-    margin-right: 20%;
+.footer-links a {
+    text-decoration: none;
+    color: #3f444c;
+    margin: 0 15px;
 }
 
 .icons .fa-brands {
@@ -626,6 +633,7 @@ h2 {
     font-size: 20px;
     opacity: 0.7;
     transition: 0.5s;
+    margin-left: 5%;
 }
 
 .video-container {
