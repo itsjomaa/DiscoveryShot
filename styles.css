@@ -206,6 +206,38 @@ body {
     font-weight: 600;
 }
 
+/* About Discovery Shot Section */
+.about-discovery-shot {
+    max-width: 1200px;
+    margin: 60px auto 40px;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.about-discovery-shot p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #3f444c;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.about-discovery-shot strong {
+    color: #000;
+    font-weight: 600;
+}
+
+/* Responsive styles for about section */
+@media (max-width: 768px) {
+    .about-discovery-shot {
+        margin: 40px auto 30px;
+        padding: 0 20px;
+    }
+
+    .about-discovery-shot p {
+        font-size: 1rem;
+    }
+}
+
 .wrapper {
     font-family: 'Stardom';
     position: absolute;
