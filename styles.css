@@ -678,10 +678,11 @@ h2 {
 
 .title-footer {
     text-align: left;
-    font-size: 3rem;
+    font-size: 4rem;
     margin-bottom: 1%;
     line-height: 1.2;
     color: #8d8d8d;
+    font-family: 'Brown';
 }
 
 .title-footer1 {
@@ -690,6 +691,7 @@ h2 {
     margin-bottom: 1%;
     line-height: 1.2;
     color: #d2d2d2;
+    font-family: 'Brown';
 }
 
 .footer-text {
