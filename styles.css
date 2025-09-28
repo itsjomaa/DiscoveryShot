@@ -97,8 +97,8 @@ body {
 .subheader {
     height: 50vh;
     width: 100%;
-    background-image: url(images/subheader1.jpg);
-    background-position: -10% 40%;
+    background-image: url(images/subheader2.jpg);
+    background-position: -10% 38%;
     background-size: cover;
     color: #fff;
 }
@@ -200,7 +200,7 @@ body {
 }
 
 .nav-links a {
-    color: #787c82;
+    color: #2d2e31;
     text-decoration: none;
     font-size: 1rem;
     font-weight: 550;
@@ -484,6 +484,7 @@ h2 {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 200px;
     gap: 10px;
+    margin: 10px 0;
 }
 
 .grid img {
@@ -608,9 +609,14 @@ h2 {
 }
 
 @media (max-width: 768px) {
-    .project-grid {
+
+    .proyectos h2 {
+        font-size: 3rem;
+    }
+
+    .grid {
         grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
-        padding-left: 0px;
+        padding-left: 20px;
     }
 
     .project-card {
@@ -1334,9 +1340,9 @@ h2 {
     }
 
     .subheader {
-        height: 30vh;
+        height: 25vh;
         width: 100%;
-        background-image: url(images/subheader.jpg);
+        background-image: url(images/subheader2.jpg);
         background-position: -10% 40%;
         background-size: cover;
         color: #fff;
