@@ -1,4 +1,52 @@
+//Arrows
+const track = document.getElementById('track');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+const cards = Array.from(track.children);
 
+// 1. Clonamos la primera y última tarjeta
+const firstClone = cards[0].cloneNode(true);
+const lastClone = cards[cards.length - 1].cloneNode(true);
+
+// 2. Las añadimos al inicio y al final
+track.appendChild(firstClone);
+track.prepend(lastClone);
+
+let index = 1; // Empezamos en 1 porque el 0 ahora es el clon
+const cardWidth = cards[0].offsetWidth;
+
+// Colocamos el track en la posición inicial correcta
+track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+nextBtn.addEventListener('click', () => {
+    if (index >= track.children.length - 1) return; // Evita clicks extra
+    index++;
+    track.style.transition = "transform 0.5s ease-in-out";
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+});
+
+prevBtn.addEventListener('click', () => {
+    if (index <= 0) return;
+    index--;
+    track.style.transition = "transform 0.5s ease-in-out";
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
+});
+
+// 3. El truco: Cuando la animación termina, comprobamos si estamos en un clon
+track.addEventListener('transitionend', () => {
+    // Si llegamos al clon del final, saltamos al inicio real (sin que se vea)
+    if (track.children[index] === firstClone) {
+        track.style.transition = "none";
+        index = 1;
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+    }
+    // Si llegamos al clon del principio, saltamos al final real
+    if (track.children[index] === lastClone) {
+        track.style.transition = "none";
+        index = track.children.length - 2;
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+    }
+});
 
 document.querySelector('.menu-btn').addEventListener('click', function () {
     this.classList.toggle('active');
