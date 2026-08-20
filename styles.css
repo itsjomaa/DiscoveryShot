@@ -19,11 +19,51 @@ body {
     background-color: #FFFBF6;
 }
 
-/* Split Hero Layout */
 .main {
+    position: relative;
     display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
+}
+
+.hero-bg-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    /* Spacing between the 3 photos */
+    padding: 2rem;
+    /* Spacing from screen borders */
+    z-index: 1;
+    /* Sits at the back */
+}
+
+/* Individual Vertical Card */
+.hero-bg-item {
+    flex: 1;
+    max-width: 320px;
+    /* Max width for each vertical column */
+    height: 75vh;
+    /* Height of the vertical photos */
+    border-radius: 8px;
+    /* Optional: subtle rounded corners */
+    overflow: hidden;
+    opacity: 0.85;
+}
+
+.hero-bg-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .center-Title {
@@ -32,7 +72,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
+    z-index: 2;
 }
 
 .brand-container {
@@ -54,21 +94,6 @@ body {
     font-weight: 400;
     margin-top: 0.2rem;
     text-align: center
-}
-
-.brand-line {
-    position: absolute;
-    top: 5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.2rem;
-    color: #7B4934;
-    font-weight: 200;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Stardom';
-    letter-spacing: 2px;
-    white-space: nowrap;
 }
 
 /* Responsive adjustments */
