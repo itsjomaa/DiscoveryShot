@@ -16,33 +16,22 @@ h2 {
 
 body {
     min-height: 100vh;
+    background-color: #FFFBF6;
 }
 
 /* Split Hero Layout */
-.split-hero {
+.main {
     display: flex;
     height: 100vh;
     width: 100%;
-    background-color: #ffffff;
 }
 
-.split-hero-left {
-    flex: 1;
+.center-Title {
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
-}
-
-.split-hero-right {
-    flex: 1;
-    overflow: hidden;
-}
-
-.split-hero-right img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .brand-container {
@@ -55,14 +44,14 @@ body {
     font-weight: 300;
     letter-spacing: 2px;
     margin-bottom: 1rem;
-    color: #000;
+    color: #004AAD;
     font-family: 'Brown';
 }
 
 .brand-byline {
     font-size: 1rem;
     letter-spacing: 1px;
-    color: #666;
+    color: #004AAD;
     font-weight: 400;
     margin-top: 1rem;
 }
