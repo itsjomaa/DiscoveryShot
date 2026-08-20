@@ -29,6 +29,11 @@ body {
     overflow: hidden;
 }
 
+.about-me {
+    height: 100vh;
+    width: 100%;
+}
+
 .hero-bg-grid {
     position: absolute;
     top: 0;
@@ -38,7 +43,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     /* Spacing between the 3 photos */
     padding: 2rem;
     /* Spacing from screen borders */
@@ -51,7 +56,7 @@ body {
     flex: 1;
     max-width: 420px;
     /* Max width for each vertical column */
-    height: 75vh;
+    height: 68vh;
     /* Optional: subtle rounded corners */
     overflow: hidden;
     opacity: 0.8;
@@ -73,25 +78,98 @@ body {
     z-index: 2;
 }
 
-.brand-container {
-    max-width: 80%;
-}
-
 .brand-logo {
     font-size: 8rem;
     font-weight: 700;
     letter-spacing: 2px;
-    color: #0d438a;
+    color: #083168;
     font-family: 'Brown';
 }
 
 .brand-byline {
-    font-size: 1rem;
+    position: absolute;
+    bottom: 3.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    white-space: nowrap;
+    font-size: 1.2rem;
     letter-spacing: 1px;
-    color: #004AAD;
+    color: #083168;
     font-weight: 400;
-    margin-top: 0.2rem;
-    text-align: center
+    text-align: center;
+}
+
+.brand-upperline {
+    position: absolute;
+    top: 3.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    white-space: nowrap;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    color: #7B4934;
+    font-weight: 400;
+    text-align: center;
+}
+
+.about-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.about-image {
+    max-width: 30%;
+}
+
+.about-image img {
+    margin-top: 10%;
+    width: 100%;
+    display: block;
+}
+
+.about-content,
+.about-content-right {
+    flex: 1;
+    max-width: 30%;
+    margin-top: 3%;
+}
+
+.about-content-right {
+    margin-top: 14%;
+}
+
+.content-title {
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #083168;
+    font-family: 'Brown';
+}
+
+.content-title1 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #7d7d7d;
+    text-transform: uppercase;
+}
+
+.content-title2 {
+    font-size: 1rem;
+    margin-bottom: 2px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.description {
+    line-height: 1.6;
+    color: #333;
 }
 
 /* Responsive adjustments */
@@ -138,15 +216,15 @@ body {
 /* Different animation delays for variety */
 
 .reveal-delay-1 {
-    transition-delay: 0.1s;
+    transition-delay: 0.2s;
 }
 
 .reveal-delay-2 {
-    transition-delay: 0.3s;
+    transition-delay: 0.4s;
 }
 
 .reveal-delay-3 {
-    transition-delay: 0.5s;
+    transition-delay: 0.6s;
 }
 
 /* Different animation directions */
@@ -174,6 +252,131 @@ body {
     margin-top: 15%;
 }
 
+/* Projects Section Container */
+.projects-section {
+    padding: 6rem 4rem;
+    background-color: #FFFBF6;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Header with Title and Subtitle */
+.projects-header {
+    display: flex;
+    align-items: baseline;
+    gap: 3rem;
+    margin-bottom: 4rem;
+}
+
+.projects-main-title {
+    font-family: 'Brown', 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+}
+
+.projects-subtitle {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #004AAD;
+    font-weight: 400;
+}
+
+/* 4-Column Grid */
+.projects-grid {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.projects-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    /* Spacing between vertical cards in the same column */
+}
+
+/* Offset columns 2 and 4 to create the staggered wave look */
+.col-offset-1 {
+    margin-top: 5rem;
+}
+
+.col-offset-2 {
+    margin-top: 7rem;
+}
+
+/* Individual Card Styling */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    color: #222;
+    text-transform: uppercase;
+}
+
+.card-img-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-img-wrapper:hover img {
+    transform: scale(1.03);
+    /* Subtle luxury zoom effect */
+}
+
+.card-category {
+    font-size: 0.85rem;
+    color: #333;
+    font-weight: 400;
+}
+
+/* Responsive: 2 columns on tablet, 1 column on mobile */
+@media (max-width: 992px) {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .col-offset-1,
+    .col-offset-2 {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .projects-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
 .footer {
     width: 100%;
     padding: 30px 0;
@@ -192,7 +395,7 @@ body {
     font-size: 4rem;
     margin-bottom: 1%;
     line-height: 1.2;
-    color: #004AAD;
+    color: #083168;
     font-family: 'Brown';
 }
 
