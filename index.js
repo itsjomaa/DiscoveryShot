@@ -71,3 +71,76 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+/* ============================================================
+   COOKIE CONSENT & GOOGLE ANALYTICS INTEGRATION
+   ============================================================ */
+
+const GA_MEASUREMENT_ID = 'G-M1T3SRSCWQ';
+const COOKIE_CONSENT_KEY = 'discovery_shot_cookie_consent';
+
+// Dynamically load Google Analytics only after user consent
+function initGoogleAnalytics() {
+    if (document.getElementById('ga-script-tag')) {
+        return; // Already initialized
+    }
+
+    // Create and inject the GA script tag
+    const gaScript = document.createElement('script');
+    gaScript.id = 'ga-script-tag';
+    gaScript.async = true;
+    gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+    document.head.appendChild(gaScript);
+
+    // Initialize dataLayer and gtag
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID);
+}
+
+// Handle User Consent (Accepted / Rejected)
+function handleCookieConsent(decision) {
+    localStorage.setItem(COOKIE_CONSENT_KEY, decision);
+
+    const banner = document.getElementById('cookie-banner');
+    if (banner) {
+        banner.style.display = 'none';
+    }
+
+    if (decision === 'accepted') {
+        initGoogleAnalytics();
+    }
+}
+
+// Allow user to re-open cookie preferences from footer or policy pages
+function openCookieSettings() {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) {
+        banner.style.display = 'block';
+    }
+}
+
+// Expose functions globally for inline HTML onclick attributes
+window.handleCookieConsent = handleCookieConsent;
+window.openCookieSettings = openCookieSettings;
+
+// Check cookie consent state on page load
+document.addEventListener('DOMContentLoaded', function () {
+    const currentConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
+    const banner = document.getElementById('cookie-banner');
+
+    if (currentConsent === 'accepted') {
+        initGoogleAnalytics();
+    } else if (currentConsent === 'rejected') {
+        // User explicitly rejected, do not load GA
+        if (banner) banner.style.display = 'none';
+    } else {
+        // No decision made yet: display the banner
+        if (banner) {
+            banner.style.display = 'block';
+        }
+    }
+});
