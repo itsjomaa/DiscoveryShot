@@ -59,7 +59,35 @@ body {
     height: 68vh;
     /* Optional: subtle rounded corners */
     overflow: hidden;
-    opacity: 0.8;
+    opacity: 0;
+    animation: photoFadeIn 1s ease forwards;
+}
+
+/* Staggered delay: Left -> Center -> Right */
+.hero-bg-item:nth-child(1) {
+    animation-delay: 0.3s;
+    /* Left photo appears first */
+}
+
+.hero-bg-item:nth-child(2) {
+    animation-delay: 0.9s;
+    /* Center photo appears 1s after left */
+}
+
+.hero-bg-item:nth-child(3) {
+    animation-delay: 1.3s;
+    /* Right photo appears 1s after center */
+}
+
+/* Keyframes animation */
+@keyframes photoFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.8;
+    }
 }
 
 .hero-bg-item img {
@@ -98,6 +126,24 @@ body {
     color: #083168;
     font-weight: 400;
     text-align: center;
+}
+
+.main-logo {
+    position: absolute;
+    top: 1.7rem;
+    left: 3rem;
+    /* Spacing from the left edge */
+    z-index: 3;
+    /* Keeps it above the hero-bg-grid images */
+    display: flex;
+    align-items: center;
+}
+
+.main-logo img {
+    height: 70px;
+    /* Adjust size as needed */
+    width: auto;
+    object-fit: contain;
 }
 
 .brand-upperline {
@@ -445,7 +491,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FFF;
+    background-color: #FFFBF6;
 }
 
 .footer-left {
