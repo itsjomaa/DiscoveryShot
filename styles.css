@@ -31,8 +31,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    min-height: 650px;
     width: 100%;
     overflow: hidden;
+    background-color: #FFFBF6;
 }
 
 .about-me {
@@ -49,40 +51,36 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
-    /* Spacing between the 3 photos */
-    padding: 2rem;
-    /* Spacing from screen borders */
+    gap: 3rem;
+    padding: 2rem 4rem;
     z-index: 1;
-    /* Sits at the back */
 }
 
-/* Individual Vertical Card */
+/* Individual Vertical Photo Cards with Staggered Diagonal Staircase */
 .hero-bg-item {
     flex: 1;
-    max-width: 420px;
-    /* Max width for each vertical column */
-    height: 68vh;
-    /* Optional: subtle rounded corners */
+    max-width: 320px;
+    height: 52vh;
+    min-height: 360px;
     overflow: hidden;
     opacity: 0;
-    animation: photoFadeIn 1s ease forwards;
+    animation: photoFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Staggered delay: Left -> Center -> Right */
-.hero-bg-item:nth-child(1) {
-    animation-delay: 0.3s;
-    /* Left photo appears first */
+/* Diagonal Stepped Cascade: Left (Highest) -> Center (Middle) -> Right (Lowest) */
+.hero-item-1 {
+    animation-delay: 0.7s;
+    margin-top: -6rem;
 }
 
-.hero-bg-item:nth-child(2) {
-    animation-delay: 0.9s;
-    /* Center photo appears 1s after left */
+.hero-item-2 {
+    animation-delay: 1.6s;
+    margin-top: 3rem;
 }
 
-.hero-bg-item:nth-child(3) {
-    animation-delay: 1.3s;
-    /* Right photo appears 1s after center */
+.hero-item-3 {
+    animation-delay: 2.5s;
+    margin-top: 12rem;
 }
 
 /* Keyframes animation */
@@ -92,7 +90,7 @@ body {
     }
 
     to {
-        opacity: 0.8;
+        opacity: 1;
     }
 }
 
@@ -101,53 +99,63 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.6s ease;
 }
 
 .center-Title {
     position: relative;
-    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 5;
+    width: 100%;
+    padding: 0 2rem;
+    pointer-events: none;
+}
+
+.brand-title-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .brand-logo {
-    font-size: 8rem;
+    font-size: clamp(3.8rem, 7.8vw, 7.8rem);
     font-weight: 700;
     letter-spacing: 2px;
-    color: #083168;
-    font-family: 'Brown';
+    color: #004AAD;
+    font-family: 'Brown', 'Cormorant Garamond', serif;
+    line-height: 0.95;
+    white-space: nowrap;
+    text-shadow: 0 2px 20px rgba(255, 251, 246, 0.3);
 }
 
 .brand-byline {
-    position: absolute;
-    bottom: 3.2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
+    position: static;
+    transform: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+    letter-spacing: 0.8px;
+    color: #004AAD;
+    font-weight: 500;
+    margin-top: 0.45rem;
+    margin-left: 0.35rem;
+    text-align: left;
     white-space: nowrap;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-    color: #083168;
-    font-weight: 400;
-    text-align: center;
 }
 
 .main-logo {
     position: absolute;
-    top: 1.7rem;
-    left: 3rem;
-    /* Spacing from the left edge */
-    z-index: 3;
-    /* Keeps it above the hero-bg-grid images */
+    top: 2rem;
+    left: 3.5rem;
+    z-index: 10;
     display: flex;
     align-items: center;
 }
 
 .main-logo img {
-    height: 90px;
-    /* Adjust size as needed */
+    height: 85px;
     width: auto;
     object-fit: contain;
 }
@@ -155,15 +163,17 @@ body {
 .brand-upperline {
     position: absolute;
     top: 3.2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
+    right: 4.5rem;
+    left: auto;
+    transform: none;
+    z-index: 10;
     white-space: nowrap;
-    font-size: 1.7rem;
-    letter-spacing: 2px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    letter-spacing: 3.5px;
     color: #7B4934;
     font-weight: 400;
-    text-align: center;
+    text-align: right;
     text-transform: uppercase;
 }
 
@@ -202,7 +212,7 @@ body {
     font-size: 3rem;
     font-weight: 500;
     margin-bottom: 10px;
-    color: #083168;
+    color: #004AAD;
     font-family: 'Brown';
 }
 
@@ -225,30 +235,94 @@ body {
     color: #333;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .split-hero {
-        flex-direction: column;
-        height: auto;
+/* Responsive adjustments for Hero & About */
+@media (max-width: 992px) {
+    .hero-bg-grid {
+        gap: 1.5rem;
+        padding: 2rem;
     }
 
-    .split-hero-left,
-    .split-hero-right {
-        flex: none;
-        width: 100%;
+    .hero-bg-item {
+        max-width: 240px;
+        height: 45vh;
+        min-height: 280px;
     }
 
-    .split-hero-right {
-        height: 50vh;
+    .hero-item-1 {
+        margin-top: -3.5rem;
     }
 
-    .brand-container {
-        text-align: center;
-        padding: 3rem 1rem;
+    .hero-item-2 {
+        margin-top: 2rem;
+    }
+
+    .hero-item-3 {
+        margin-top: 7.5rem;
+    }
+
+    .brand-upperline {
+        top: 2rem;
+        right: 2rem;
+        font-size: 1.15rem;
+    }
+
+    .main-logo {
+        top: 1.8rem;
+        left: 2rem;
+    }
+
+    .main-logo img {
+        height: 65px;
+    }
+}
+
+@media (max-width: 650px) {
+    .hero-bg-grid {
+        gap: 0.75rem;
+        padding: 1rem;
+    }
+
+    .hero-bg-item {
+        max-width: 32%;
+        height: 38vh;
+        min-height: 220px;
+    }
+
+    .hero-item-1 {
+        margin-top: -2.5rem;
+    }
+
+    .hero-item-2 {
+        margin-top: 1rem;
+    }
+
+    .hero-item-3 {
+        margin-top: 4.5rem;
+    }
+
+    .brand-upperline {
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+
+    .main-logo {
+        top: 1.2rem;
+        left: 1.2rem;
+    }
+
+    .main-logo img {
+        height: 50px;
     }
 
     .brand-logo {
-        font-size: 2.5rem;
+        font-size: clamp(2.2rem, 9.5vw, 3.8rem);
+    }
+
+    .brand-byline {
+        font-size: 0.95rem;
+        margin-top: 0.2rem;
     }
 }
 
@@ -709,7 +783,7 @@ body {
     font-size: 4rem;
     margin-bottom: 1%;
     line-height: 1.2;
-    color: #083168;
+    color: #004AAD;
     font-family: 'Brown';
 }
 

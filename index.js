@@ -1,24 +1,36 @@
 
-// Scroll Animation
+// Modern Smooth Scroll Animation with IntersectionObserver
 document.addEventListener('DOMContentLoaded', function () {
-    // Initial check for elements in viewport on page load
-    checkReveal();
+    const reveals = document.querySelectorAll('.reveal');
 
-    // Check for elements in viewport on scroll
-    window.addEventListener('scroll', checkReveal);
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.08,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
-    function checkReveal() {
-        const reveals = document.querySelectorAll('.reveal');
-
-        for (let i = 0; i < reveals.length; i++) {
+        reveals.forEach(el => revealObserver.observe(el));
+    } else {
+        // Fallback for older browsers
+        function checkReveal() {
             const windowHeight = window.innerHeight;
-            const revealTop = reveals[i].getBoundingClientRect().top;
-            const revealPoint = 150; // Adjust this value to change when the animation triggers
-
-            if (revealTop < windowHeight - revealPoint) {
-                reveals[i].classList.add('active');
+            for (let i = 0; i < reveals.length; i++) {
+                const revealTop = reveals[i].getBoundingClientRect().top;
+                if (revealTop < windowHeight - 80) {
+                    reveals[i].classList.add('active');
+                }
             }
         }
+        window.addEventListener('scroll', checkReveal, { passive: true });
+        checkReveal();
     }
 });
 
