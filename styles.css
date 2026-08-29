@@ -332,7 +332,7 @@ body {
     position: relative;
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition: opacity 1.4s ease, transform 1.4s ease;
 }
 
 .reveal.active {
@@ -343,15 +343,23 @@ body {
 /* Different animation delays for variety */
 
 .reveal-delay-1 {
-    transition-delay: 0.2s;
+    transition-delay: 0.6s;
+    transition: opacity 1.4s ease, transform 1s ease;
 }
 
 .reveal-delay-2 {
-    transition-delay: 0.4s;
+    transition-delay: 1.2s;
+    transition: opacity 1.2s ease, transform 0.8s ease;
 }
 
 .reveal-delay-3 {
-    transition-delay: 0.6s;
+    transition-delay: 1.8s;
+    transition: opacity 1s ease, transform 0.6s ease;
+}
+
+.reveal-delay-4 {
+    transition-delay: 2.5s;
+    transition: opacity 0.8s ease, transform 0.2s ease;
 }
 
 /* Different animation directions */
