@@ -336,50 +336,55 @@ body {
     font-weight: 400;
 }
 
-/* 4-Column Grid */
-.projects-grid {
-    display: flex;
-    gap: 2.5rem;
-    align-items: flex-start;
-}
+/* ============================================================
+   PHOTO PROJECTS - UNORDERED / EDITORIAL COLLAGE
+   ============================================================ */
 
-.projects-col {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
-    /* Spacing between vertical cards in the same column */
-}
-
-/* Offset columns 2 and 4 to create the staggered wave look */
-.col-offset-1 {
-    margin-top: 5rem;
-}
-
-.col-offset-2 {
-    margin-top: 7rem;
+/* Photo Collage Grid (Unordered / Editorial Asymmetric Layout) */
+.photo-collage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2.8rem;
+    row-gap: 3.8rem;
+    align-items: start;
+    margin-bottom: 2rem;
 }
 
 /* Individual Card Styling */
 .project-card {
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.5rem;
+    position: relative;
+    transition: transform 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
 }
 
 .card-title {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 0.95rem;
-    letter-spacing: 0.5px;
-    color: #222;
+    letter-spacing: 0.6px;
+    color: #1a1a1a;
     text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.3;
 }
 
 .card-img-wrapper {
-    width: 70%;
+    width: 80%;
     overflow: hidden;
-    background-color: #000000;
+    background-color: transparent;
+}
+
+.card-img-wrapper a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
 }
 
 .card-img-wrapper img {
@@ -387,35 +392,224 @@ body {
     height: auto;
     display: block;
     object-fit: cover;
-    transition: opacity 0.5s ease-in-out;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
 }
 
-.card-img-wrapper img:hover {
-    opacity: 0.6;
+.card-img-wrapper:hover img {
+    transform: scale(1.035);
+    opacity: 0.92;
 }
 
 .card-category {
-    font-size: 0.85rem;
-    color: #333;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: #444444;
     font-weight: 400;
+    letter-spacing: 0.2px;
 }
 
-/* Responsive: 2 columns on tablet, 1 column on mobile */
-@media (max-width: 992px) {
-    .projects-grid {
+/* Specific Unordered Asymmetric Positions matching reference design */
+.card-pos-1 {
+    /* MJ & VENUS */
+    grid-column: 1;
+    grid-row: 1;
+    margin-top: 0;
+    width: 92%;
+    justify-self: start;
+}
+
+.card-pos-2 {
+    /* AUSTIN - Comunión (Staggered Down) */
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 8rem;
+    width: 92%;
+    justify-self: center;
+}
+
+.card-pos-3 {
+    /* BADETH */
+    grid-column: 3;
+    grid-row: 1;
+    margin-top: 5rem;
+    width: 88%;
+    justify-self: center;
+}
+
+.card-pos-4 {
+    /* KENT (Staggered Down) */
+    grid-column: 4;
+    grid-row: 1;
+    margin-top: 12.5rem;
+    width: 92%;
+    justify-self: end;
+}
+
+.card-pos-5 {
+    /* JOVE ORQUESTRA */
+    grid-column: 1;
+    grid-row: 1.5;
+    margin-top: -4rem;
+    margin-left: 2rem;
+    width: 92%;
+    justify-self: start;
+}
+
+.card-pos-6 {
+    /* ORIOL MARTORELL 4rt ESO - Center Landscape Feature */
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    margin-top: 3rem;
+    margin-left: 2rem;
+    width: 100%;
+    justify-self: center;
+}
+
+.card-pos-7 {
+    /* KHENDIE */
+    grid-column: 4;
+    grid-row: 2;
+    margin-top: -1.5rem;
+    width: 92%;
+    justify-self: end;
+}
+
+.card-pos-8 {
+    /* AUSTIN - Graduación */
+    grid-column: 2;
+    grid-row: 3;
+    margin-top: -2rem;
+    width: 90%;
+    justify-self: start;
+}
+
+.card-pos-9 {
+    /* EDGAR - Comunión */
+    grid-column: 3;
+    grid-row: 3;
+    margin-top: 3.5rem;
+    width: 92%;
+    justify-self: center;
+}
+
+.card-pos-10 {
+    /* MIQUEL CARR */
+    grid-column: 1;
+    grid-row: 3;
+    margin-top: 5.5rem;
+    width: 92%;
+    justify-self: start;
+}
+
+.card-pos-11 {
+    /* PRINCE */
+    grid-column: 4;
+    grid-row: 3;
+    margin-top: 0.5rem;
+    width: 92%;
+    justify-self: end;
+}
+
+.card-pos-12 {
+    /* GABRIELA */
+    grid-column: 2;
+    grid-row: 4;
+    margin-top: 2.5rem;
+    width: 92%;
+    justify-self: center;
+}
+
+.card-pos-13 {
+    /* MHEL */
+    grid-column: 3;
+    grid-row: 4;
+    margin-top: 3rem;
+    width: 90%;
+    justify-self: center;
+}
+
+/* ============================================================
+   VIDEO PROJECTS 4-COLUMN GRID
+   ============================================================ */
+
+.video-projects-section .projects-grid {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+}
+
+.video-projects-section .projects-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.video-projects-section .col-offset-1 {
+    margin-top: 5rem;
+}
+
+.video-projects-section .col-offset-2 {
+    margin-top: 7rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .photo-collage-grid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+        row-gap: 3rem;
+    }
+
+    .photo-collage-grid .project-card {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .photo-collage-grid .card-pos-2,
+    .photo-collage-grid .card-pos-4,
+    .photo-collage-grid .card-pos-7,
+    .photo-collage-grid .card-pos-9,
+    .photo-collage-grid .card-pos-11,
+    .photo-collage-grid .card-pos-13 {
+        margin-top: 3rem;
+    }
+
+    .photo-collage-grid .card-pos-6 {
+        grid-column: 1 / -1;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .video-projects-section .projects-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2rem;
     }
 
-    .col-offset-1,
-    .col-offset-2 {
+    .video-projects-section .col-offset-1,
+    .video-projects-section .col-offset-2 {
         margin-top: 0;
     }
 }
 
-@media (max-width: 600px) {
-    .projects-grid {
+@media (max-width: 650px) {
+    .photo-collage-grid {
+        grid-template-columns: 1fr;
+        row-gap: 2.5rem;
+    }
+
+    .photo-collage-grid .project-card {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100%;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .video-projects-section .projects-grid {
         grid-template-columns: 1fr;
     }
 
