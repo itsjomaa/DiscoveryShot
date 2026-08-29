@@ -140,7 +140,7 @@ body {
 }
 
 .main-logo img {
-    height: 70px;
+    height: 90px;
     /* Adjust size as needed */
     width: auto;
     object-fit: contain;
@@ -372,7 +372,7 @@ body {
 .card-img-wrapper {
     width: 70%;
     overflow: hidden;
-    background-color: #eee;
+    background-color: #000000;
 }
 
 .card-img-wrapper img {
@@ -380,7 +380,11 @@ body {
     height: auto;
     display: block;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.card-img-wrapper img:hover {
+    opacity: 0.6;
 }
 
 .card-category {
