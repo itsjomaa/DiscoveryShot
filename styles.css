@@ -10,6 +10,12 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Stardom';
+    src: url(font/Stardom-Regular.otf);
+    font-style: normal;
+}
+
 h2 {
     font-family: 'Brown';
 }
@@ -158,6 +164,7 @@ body {
     color: #7B4934;
     font-weight: 400;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .about-container {
