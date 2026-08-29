@@ -461,6 +461,7 @@ body {
     transition: transform 0.3s ease, background-color 0.3s ease;
     z-index: 2;
     pointer-events: none;
+    opacity: 0.6;
 }
 
 .video-play-btn i {
