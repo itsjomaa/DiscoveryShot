@@ -332,7 +332,7 @@ body {
     position: relative;
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 1.4s ease, transform 1.4s ease;
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal.active {
@@ -343,19 +343,19 @@ body {
 /* Different animation delays for variety */
 
 .reveal-delay-1 {
-    transition-delay: 0.6s;
+    transition-delay: 0.2s;
 }
 
 .reveal-delay-2 {
-    transition-delay: 1.2s;
+    transition-delay: 0.4s;
 }
 
 .reveal-delay-3 {
-    transition-delay: 1.8s;
+    transition-delay: 0.6s;
 }
 
 .reveal-delay-4 {
-    transition-delay: 2.5s;
+    transition-delay: 0.8s;
 }
 
 /* Different animation directions */
