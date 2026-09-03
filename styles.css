@@ -855,7 +855,7 @@ body {
 }
 
 .legal-nav-logo img {
-    height: 55px;
+    height: 85px;
     width: auto;
     object-fit: contain;
 }
@@ -1196,6 +1196,7 @@ body {
     font-weight: 500;
     line-height: 1;
     letter-spacing: 4px;
+    color: #004AAD;
 }
 
 .not-found-message {
@@ -1203,23 +1204,24 @@ body {
     font-size: 1.4rem;
     letter-spacing: 1px;
     margin: 16px 0 32px;
+    color: #004AAD;
 }
 
 .not-found-link {
     display: inline-block;
     padding: 14px 36px;
-    border: 1.5px solid currentColor;
+    border: 1.5px solid #9ab8df;
     border-radius: 2px;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-decoration: none;
-    color: inherit;
+    color: #9ab8df;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .not-found-link:hover {
-    background-color: currentColor;
-    color: #000;
+    background-color: #9ab8df;
+    color: #fff;
 }
