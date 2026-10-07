@@ -1,4 +1,19 @@
 
+// Dynamic Age Calculator — updates automatically each year
+(function () {
+    const BIRTH_YEAR = 2009;
+    const BIRTH_MONTH = 11; // January = 0 (update if birth month is known)
+    const BIRTH_DAY = 24;   // Update to Charles's actual birthday if known
+
+    const today = new Date();
+    const birthday = new Date(today.getFullYear(), BIRTH_MONTH, BIRTH_DAY);
+    let age = today.getFullYear() - BIRTH_YEAR;
+    if (today < birthday) age--; // Hasn't had birthday yet this year
+
+    const el = document.getElementById('charles-age');
+    if (el) el.textContent = age;
+})();
+
 // Modern Smooth Scroll Animation with IntersectionObserver
 document.addEventListener('DOMContentLoaded', function () {
     const reveals = document.querySelectorAll('.reveal');
